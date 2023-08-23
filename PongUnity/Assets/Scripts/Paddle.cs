@@ -14,17 +14,20 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(upKey))
+        {
+            MoveUp();
+        }
     }
 
     public void MoveUp()
     {
-
+        transform.position += Vector3.up * verticalMovementSpeed * Time.deltaTime;  //time.delta time makes things run at the same speed regardless of processing power
     }
 
     public void MoveDown()
     {
-
+        transform.position += Vector3.down * verticalMovementSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
