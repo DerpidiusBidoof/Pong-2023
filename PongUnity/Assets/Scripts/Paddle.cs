@@ -14,9 +14,13 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(upKey))
+        if (Input.GetKey(upKey) && transform.position.y < maxYPosition)
         {
             MoveUp();
+        }
+        else if (Input.GetKey(downKey) && transform.position.y > -maxYPosition)
+        {
+            MoveDown();
         }
     }
 
