@@ -14,11 +14,11 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(upKey) && transform.position.y < maxYPosition)
+        if (Input.GetKey(upKey) && transform.position.y < maxYPosition) //if up key is pressed and we do not exceed the max Y position we can move up
         {
             MoveUp();
         }
-        else if (Input.GetKey(downKey) && transform.position.y > -maxYPosition)
+        else if (Input.GetKey(downKey) && transform.position.y > -maxYPosition) //if down key is pressed and we do not exceed the negative max Y position we can move down
         {
             MoveDown();
         }
@@ -34,8 +34,12 @@ public class Paddle : MonoBehaviour
         transform.position += Vector3.down * verticalMovementSpeed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //if anything collides with me, next step
     {
-        
+        if (collision.gameObject.GetComponent<Ball>()) //if what collides with me has the ball script
+        {
+            Vector3 hitDirection = new Vector3(ballHitXDirection, 0, 0); //hit direction changes ball x direction
+            collision.gameObject.GetComponent<Ball>().Bounce(hitDirection); //puts hit direction into bounce from ball script
+        } 
     }
 }
