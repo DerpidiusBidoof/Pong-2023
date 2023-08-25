@@ -38,7 +38,8 @@ public class Paddle : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Ball>()) //if what collides with me has the ball script
         {
-            Vector3 hitDirection = new Vector3(ballHitXDirection, 0, 0); //hit direction changes ball x direction
+            float yHitDirection = (collision.transform.position.y - transform.position.y);
+            Vector3 hitDirection = new Vector3(ballHitXDirection, yHitDirection, 0); //hit direction changes ball x,y direction
             collision.gameObject.GetComponent<Ball>().Bounce(hitDirection); //puts hit direction into bounce from ball script
         } 
     }
