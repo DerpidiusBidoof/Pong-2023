@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
+    public static BallSpawner Instance;
+
     public Transform spawnPosition;
     public GameObject ballPrefab;
 
     GameObject currentBall;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +43,5 @@ public class BallSpawner : MonoBehaviour
         
         //Apply the new direction to the ball
         currentBall.GetComponent<Ball>().direction = newDirection;
-
-    }
-
-    public void CheckBoundries()
-    {
-
     }
 }
