@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScore: 3
-  winMessage: VICTORY!
+  winMessage: "VICTORY! (\\(\xB0^\xB0)/)"
   p1ScoreText: {fileID: 2049177797}
   p2ScoreText: {fileID: 987243751}
   winMessageText: {fileID: 519348510}
