@@ -31,13 +31,11 @@ public class Ball : MonoBehaviour
         if (transform.position.x > maxXPosition)
         {
             ScoreBoard.Instance.GivePointToP1();
-            BallSpawner.Instance.SpawnBall();
             Destroy(gameObject);
         }
         else if (transform.position.x < -maxXPosition)
         {
             ScoreBoard.Instance.GivePointToP2();
-            BallSpawner.Instance.SpawnBall();
             Destroy(gameObject);
         }
     }

@@ -38,18 +38,31 @@ public class ScoreBoard : MonoBehaviour
 
     private void CheckWin()
     {
-
+        if (p1Score >= winScore)
+        {
+            winMessageText.text = "PLAYER 1 ACHIEVES " + winMessage;
+        }
+        else if (p2Score >= winScore)
+        {
+            winMessageText.text = "PLAYER 2 ACHIEVES " + winMessage;
+        }
+        else
+        {
+            BallSpawner.Instance.SpawnBall();
+        }
     }
 
     public void GivePointToP1()
     {
         p1Score++; //++ means add 1
         p1ScoreText.SetText(p1Score.ToString());
+        CheckWin();
     }
 
     public void GivePointToP2()
     {
         p2Score++;
         p2ScoreText.SetText(p2Score.ToString());
+        CheckWin() ;
     }
 }
