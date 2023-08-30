@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerAI : MonoBehaviour
 {
     public Paddle paddle;
-    Ball currentBall; 
+    Ball currentBall;
+    public float distanceBuffer;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +40,11 @@ public class PlayerAI : MonoBehaviour
 
     private void FollowBall()
     {
-        if(currentBall.transform.position.y > paddle.transform.position.y)
+        if(currentBall.transform.position.y > paddle.transform.position.y + distanceBuffer)
         {
             paddle.MoveUp();
         }
-        else if (currentBall.transform.position.y < paddle.transform.position.y)
+        else if (currentBall.transform.position.y < paddle.transform.position.y + distanceBuffer)
         {
             paddle.MoveDown();
         }
