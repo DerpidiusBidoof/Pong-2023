@@ -28,7 +28,7 @@ public class Ball : MonoBehaviour
 
     public void CheckBoundries()
     {
-        if (transform.position.x > maxXPosition || transform.position.x < -maxXPosition)
+        if (transform.position.x > maxXPosition || transform.position.x < -maxXPosition) //If position x is greater than maxXPosition or position x is less than negative maxXPosition, call the ballspawner and delete the old ball
         {
             BallSpawner.Instance.SpawnBall();
             Destroy(gameObject);
