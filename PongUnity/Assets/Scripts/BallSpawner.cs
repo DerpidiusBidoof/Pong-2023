@@ -25,10 +25,7 @@ public class BallSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnBall();
-        }
+
     }
 
     public void SpawnBall()
